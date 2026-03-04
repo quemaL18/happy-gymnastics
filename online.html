@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Онлайн-занятия - Счастливая гимнастика</title>
+  <meta name="description" content="Онлайн-занятия 3–16 лет: формат, что нужно, запись." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ===== slider ===== */
+.os{
+  overflow:hidden;
+}  /* ограничиваем область */
+
+    .os__bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .os__barTitle{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+    .os__barTitle strong{font-size:16px}
+    .os__barTitle span{color:var(--muted); font-size:13px}
+
+    .os__nav{display:flex; gap:8px}
+
+    .osBtn{
+      width:42px; height:42px;
+      border-radius:14px;
+      border:1px solid rgba(35,26,38,.10);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 28px rgba(35,26,38,.10);
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
+      cursor:pointer;
+      user-select:none;
+    }
+    .osBtn:hover{transform: translateY(-2px); border-color: rgba(108,92,231,.22); box-shadow: 0 16px 40px rgba(35,26,38,.14)}
+    .osBtn:active{transform: translateY(0) scale(.98)}
+    .osBtn[disabled]{opacity:.45; cursor:not-allowed; transform:none}
+
+.os__track{
+  display:flex;
+  gap:0;                         /* важно */
+  transform: translateX(0);
+  transition: transform .35s var(--ease);
+  width:100%;
+}
+
+.osCard{
+    background: linear-gradient(
+    135deg,
+    rgba(208,160,190,.15),
+    rgba(185,155,215,.25)
+  );
+  border-radius: 15px;
+  flex: 0 0 100%;
+  width:100%;
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+}
+
+    .osHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .osMark{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:56px;
+      height:36px;
+      padding:0 14px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.5px;
+      background: rgba(108,92,231,.10);
+      border:1px solid rgba(108,92,231,.22);
+      white-space:nowrap;
+    }
+
+    .osPill{
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(35,26,38,.10);
+      color: var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .osH3{margin:12px 0 6px; font-size:18px}
+    .osText{margin:0; color:var(--muted); line-height:1.5}
+    .osList{margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.5}
+
+    .os__dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:10px;
+    }
+    .osDot{
+      width:8px; height:8px;
+      border-radius:999px;
+      border:1px solid rgba(35,26,38,.12);
+      background: rgba(255,255,255,.75);
+      cursor:pointer;
+      transition: width .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
+    .osDot.is-active{
+      width:24px;
+      background: rgba(108,92,231,.22);
+      border-color: rgba(108,92,231,.22);
+    }
+    
+    
+  </style>
+</head>
+
+<body>
+  <div class="preloader">
+    <div class="preloader__logo"></div>
+  </div>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="header">
+        <a class="brand" href="index.html">
+          <div class="brand__logo" aria-hidden="true"></div>
+          <div class="brand__text">
+            <div class="brand__name">Счастливая гимнастика</div>
+            <div class="brand__tag">Красноярское “ЦСР №1”</div>          </div>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Главная</a>
+          <a href="directions.html">Направления</a>
+          <a class="active" href="online.html">Онлайн-занятия</a>
+          <a href="gallery.html">Галерея</a>
+          <a href="team.html">Тренеры</a>
+          <a href="infocenter.html">Инфоцентр</a>
+          <a href="franchise.html">Франшиза</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="header__right">
+          <span class="pill">Город: <strong>Красноярск</strong></span>
+          <a class="pill" href="tel:+78005553535"><strong>+7 (800) 555-35-35</strong></a>
+          <a class="btn btn--sm" href="pay.html">Оплатить</a>
+          <a class="btn btn--brand btn--sm" href="#signup">Записаться</a>
+          <button class="burger" data-burger aria-label="Открыть меню">≡</button>
+        </div>
+      </div>
+
+      <div class="mobileNav" data-mobile-nav>
+        <a href="index.html">Главная</a>
+        <a href="directions.html">Направления</a>
+        <a class="active" href="online.html">Онлайн-занятия</a>
+        <a href="gallery.html">Галерея</a>
+        <a href="team.html">Тренеры</a>
+        <a href="infocenter.html">Инфоцентр</a>
+        <a href="franchise.html">Франшиза</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container">
+      <div class="split">
+        <!-- LEFT -->
+        <div class="card" style="padding:18px;">
+          <span class="kicker">Формат</span>
+          <h1 class="h2" style="font-size:34px;">Онлайн-занятия для детей 3–16 лет</h1>
+          <p class="sub">
+            Вариант, когда не получается регулярно приезжать в зал. Тренер ведёт занятие в прямом эфире,
+            подсказывает технику и нагрузку.
+          </p>
+
+          <div class="os" aria-label="Слайдер преимуществ">
+            <div class="os__bar">
+              <div class="os__nav">
+                <button class="osBtn" type="button" data-os-prev aria-label="Назад">←</button>
+                <button class="osBtn" type="button" data-os-next aria-label="Вперёд">→</button>
+              </div>
+            </div>
+
+            <div class="os__track" data-os-track>
+              <article class="osCard">
+                <div class="osHead">
+                  <span class="osPill">Длительность</span>
+                </div>
+                <h3 class="osH3">30–60 минут</h3>
+                <p class="osText">Длительность зависит от возраста и уровня ребёнка.</p>
+                <ul class="osList">
+                  <li>Разминка + техника</li>
+                  <li>Основной блок</li>
+                  <li>Заминка и растяжка</li>
+                </ul>
+              </article>
+
+              <article class="osCard">
+                <div class="osHead">
+                  <div class="osMark">В реальном времени</div>
+                  <span class="osPill">Связь</span>
+                </div>
+                <h3 class="osH3">Видеосвязь</h3>
+                <p class="osText">Телефон или ноутбук и стабильный интернет.</p>
+                <ul class="osList">
+                  <li>Тренер показывает и корректирует</li>
+                  <li>Темп подбирается под ребёнка</li>
+                  <li>Можно задавать вопросы по ходу</li>
+                </ul>
+              </article>
+
+              <article class="osCard">
+                <div class="osHead">
+                  <div class="osMark">В удобном месте</div>
+                  <span class="osPill">Комфорт</span>
+                </div>
+                <h3 class="osH3">Безопасно дома</h3>
+                <p class="osText">Упражнения подбираются под домашние условия.</p>
+                <ul class="osList">
+                  <li>Без перегруза и рискованных элементов</li>
+                  <li>Контроль техники в кадре</li>
+                  <li>Понятные задания и паузы</li>
+                </ul>
+              </article>
+
+              <article class="osCard">
+                <div class="osHead">
+                  <div class="osMark">ПЛАН</div>
+                  <span class="osPill">Прогресс</span>
+                </div>
+                <h3 class="osH3">План занятий</h3>
+                <p class="osText">Осанка, гибкость, координация - по понятным шагам.</p>
+                <ul class="osList">
+                  <li>Фиксируем цель</li>
+                  <li>Делаем регулярный план</li>
+                  <li>Отслеживаем прогресс</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="os__dots" data-os-dots>
+              <button class="osDot is-active" type="button" aria-label="1" data-os-dot="0"></button>
+              <button class="osDot" type="button" aria-label="2" data-os-dot="1"></button>
+              <button class="osDot" type="button" aria-label="3" data-os-dot="2"></button>
+              <button class="osDot" type="button" aria-label="4" data-os-dot="3"></button>
+            </div>
+          </div>
+
+          <div class="card" style="padding:16px; margin-top:12px;">
+            <h3 style="margin:0 0 8px;">Что нужно для занятия</h3>
+            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.5">
+              <li>Коврик / мягкое покрытие</li>
+              <li>Свободное место 2×2 метра</li>
+              <li>Удобная спортивная форма</li>
+              <li>Телефон/ноутбук + интернет</li>
+              <li>Вода</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="card form" id="signup">
+          <h3>Запись на онлайн-занятия</h3>
+          <form data-form>
+            <input type="hidden" name="format" value="Онлайн" />
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Имя родителя *</div>
+                <input class="input" name="parent_name" required />
+              </div>
+              <div class="field">
+                <div class="label">Телефон *</div>
+                <input class="input" name="phone" required />
+              </div>
+            </div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Имя ребёнка *</div>
+                <input class="input" name="child_name" required />
+              </div>
+              <div class="field">
+                <div class="label">Возраст *</div>
+                <input class="input" name="child_age" type="number" required min="3" max="16" />
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="label">Цель</div>
+              <select class="select" name="goal">
+                <option value="">Выберите</option>
+                <option>Осанка и ОФП</option>
+                <option>Растяжка и гибкость</option>
+                <option>Подготовка к гимнастике</option>
+                <option>Поддержание формы</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <div class="label">Удобное время</div>
+              <select class="select" name="time">
+                <option value="">Любое</option>
+                <option>Утро</option>
+                <option>День</option>
+                <option>Вечер</option>
+              </select>
+            </div>
+
+            <div class="form__actions">
+              <button class="btn btn--brand" type="submit">Отправить заявку</button>
+              <a class="btn" href="contacts.html">Контакты</a>
+            </div>
+
+            <div class="note">
+              После заявки администратор уточнит время и формат (демо).
+            </div>
+          </form>
+
+          <div class="card" style="padding:14px; margin-top:12px;">
+            <strong>Оплата</strong><br/>
+            <small>Кнопка ведёт на страницу оплаты (демо).</small>
+            <div style="margin-top:10px;">
+              <a class="btn btn--sm" href="pay.html">Перейти к оплате</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="card" style="padding:14px;">
+          <strong>Счастливая гимнастика</strong><br/>
+          <small>Онлайн-запись • расписание • цены • тренеры • события</small>
+          <div class="footlinks">
+            <a href="directions.html">Направления</a>
+            <a href="infocenter.html">Инфоцентр</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+        </div>
+        <div class="card" style="padding:14px;">
+          <div><small>Телефон</small><br/><a href="tel:+79233554158"><strong>+7 (923) 355-41-58</strong></a></div>
+          <div style="margin-top:10px;"><small>Оплата</small><br/>
+            <a class="btn btn--sm" href="pay.html">Перейти к оплате</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; color:var(--muted); font-size:12px;">
+        © <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-modal aria-hidden="true">
+    <div class="modal__card">
+      <div class="modal__top">
+        <div class="modal__title" data-modal-title>Фото</div>
+        <button class="btn btn--sm modal__close" data-modal-close type="button">Закрыть</button>
+      </div>
+      <img class="modal__img" data-modal-img alt="Фото">
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    (function(){
+  const track = document.querySelector('[data-os-track]');
+  const prev = document.querySelector('[data-os-prev]');
+  const next = document.querySelector('[data-os-next]');
+  const dots = Array.from(document.querySelectorAll('[data-os-dot]'));
+
+  if(!track) return;
+
+  let idx = 0;
+  const max = 3; // 4 карточки = 0..3
+  let lock = false;
+
+  const update = () => {
+track.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach((d,i)=>d.classList.toggle('is-active', i===idx));
+    if(prev) prev.disabled = idx === 0;
+    if(next) next.disabled = idx === max;
+  };
+
+  const go = (i) => {
+    if(lock) return;
+    lock = true;
+
+    idx = Math.max(0, Math.min(max, i));
+    update();
+
+    setTimeout(()=> lock=false, 400);
+  };
+
+  if(prev) prev.onclick = () => go(idx - 1);
+  if(next) next.onclick = () => go(idx + 1);
+
+  dots.forEach((d,i)=>{
+    d.onclick = () => go(i);
+  });
+
+  track.addEventListener('wheel', (e)=>{
+    e.preventDefault();
+    if(e.deltaY > 0) go(idx + 1);
+    if(e.deltaY < 0) go(idx - 1);
+  }, {passive:false});
+
+  update();
+})();
+  </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!-- infocenter.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Инфоцентр - Счастливая гимнастика</title>
+  <meta name="description" content="Расписание, цены, документы, FAQ." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+
+  <div class="topbar">
+    <div class="container">
+      <div class="header">
+        <a class="brand" href="index.html">
+          <div class="brand__logo" aria-hidden="true"></div>
+          <div class="brand__text">
+            <div class="brand__name">Счастливая гимнастика</div>
+            <div class="brand__tag">Красноярское “ЦСР №1”</div>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Главная</a>
+          <a href="directions.html">Направления</a>
+          <a href="online.html">Онлайн-занятия</a>
+          <a href="gallery.html">Галерея</a>
+          <a href="team.html">Тренеры</a>
+          <a class="active" href="infocenter.html">Инфоцентр</a>
+          <a href="franchise.html">Франшиза</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="header__right">
+          <span class="pill">Город: <strong>Красноярск</strong></span>
+          <a class="pill" href="tel:+78005553535"><strong>+7 (800) 555-35-35</strong></a>
+          <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Оплатить</a>
+          <a class="btn btn--brand btn--sm" href="contacts.html#write">Записаться</a>
+          <button class="burger" data-burger aria-label="Открыть меню">≡</button>
+        </div>
+      </div>
+
+      <div class="mobileNav" data-mobile-nav>
+        <a href="index.html">Главная</a>
+        <a href="directions.html">Направления</a>
+        <a href="online.html">Онлайн-занятия</a>
+        <a href="gallery.html">Галерея</a>
+        <a href="team.html">Тренеры</a>
+        <a class="active" href="infocenter.html">Инфоцентр</a>
+        <a href="franchise.html">Франшиза</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h1 class="h2" style="font-size:34px;">Инфоцентр</h1>
+          <p class="sub">Расписание обновляется ежемесячно. Цены и документы - ниже.</p>
+        </div>
+      </div>
+
+      <section class="section" id="schedule">
+        <div class="section__head">
+          <div>
+            <h2 class="h2">Расписание</h2>
+          </div>
+        </div>
+
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>День</th>
+                <th>Время</th>
+                <th>Направление</th>
+                <th>Возраст</th>
+                <th>Зал</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Пн</td><td>17:00 - 18:00</td><td>ОФП</td><td>3 - 5</td><td>Основной</td></tr>
+              <tr><td>Вт</td><td>18:00 - 19:30</td><td>Художественная</td><td>6 - 9</td><td>Основной</td></tr>
+              <tr><td>Ср</td><td>17:30 - 19:00</td><td>Эстетическая</td><td>8 - 12</td><td>Основной</td></tr>
+              <tr><td>Чт</td><td>18:00 - 19:30</td><td>Художественная</td><td>10 - 16</td><td>Основной</td></tr>
+              <tr><td>Сб</td><td>11:00 - 12:00</td><td>Футбол</td><td>6 - 10</td><td>Площадка</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="prices">
+        <div class="section__head">
+          <div>
+            <h2 class="h2">Цены</h2>
+          </div>
+        </div>
+
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Тариф</th>
+                <th>Что входит</th>
+                <th>Стоимость</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Пробное</td><td>1 занятие</td><td>0 ₽</td></tr>
+              <tr><td>Абонемент на 8 занятий</td><td>8 занятий в месяц</td><td>2000 ₽ </td></tr>
+              <tr><td>Абонемент на 12 занятий</td><td>12 занятий в месяц</td><td>2800 ₽</td></tr>
+              <tr><td>Разовое</td><td>1 занятие</td><td>300 ₽</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="padding:14px; margin-top:12px;">
+          <strong>Оплата</strong><br/>
+          <small>Переход на внешний сервис по готовой ссылке.</small>
+          <div style="margin-top:10px;">
+            <a class="btn btn--sm" href="https://example.com/pay" target="_blank" rel="noopener">Перейти к оплате</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="docs">
+        <div class="section__head">
+          <div>
+            <h2 class="h2">Документы</h2>
+          </div>
+        </div>
+
+        <div class="cards">
+          <a class="card tile" style="grid-column: span 6;" href="#" download>
+            <div class="icon">PDF</div>
+            <h3>Устав организации</h3>
+            <p>Скачать документ</p>
+          </a>
+          <a class="card tile" style="grid-column: span 6;" href="#" download>
+            <div class="icon">PDF</div>
+            <h3>Публичная оферта</h3>
+            <p>Скачать документ</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section__head">
+          <div>
+            <h2 class="h2">ЧаВо</h2>
+            <p class="sub">Нажмите на вопрос - откроется ответ.</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc">
+            <button type="button">С какого возраста можно начинать? <span>+</span></button>
+            <div class="body">Есть группы от 3 лет. Подберём уровень по возрасту и подготовке.</div>
+          </div>
+          <div class="acc">
+            <button type="button">Нужно ли сразу покупать форму? <span>+</span></button>
+            <div class="body">Для первого занятия достаточно удобной спортивной одежды. Дальше подскажем.</div>
+          </div>
+          <div class="acc">
+            <button type="button">Можно ли ходить 2 раза в неделю? <span>+</span></button>
+            <div class="body">Да. Частота зависит от возраста и целей - обсудим с тренером.</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="card" style="padding:14px;">
+          <strong>Счастливая гимнастика</strong><br/>
+          <small>Онлайн-запись • расписание • цены • тренеры • события</small>
+          <div class="footlinks">
+            <a href="directions.html">Направления</a>
+            <a href="infocenter.html">Инфоцентр</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+        </div>
+        <div class="card" style="padding:14px;">
+          <div><small>Телефон</small><br/><a href="tel:+79233554158"><strong>+7 (800) 555-35-35</strong></a></div>
+          <div style="margin-top:10px;"><small>Оплата</small><br/>
+            <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Перейти к оплате</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; color:var(--muted); font-size:12px;">
+        © <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-modal aria-hidden="true">
+    <div class="modal__card">
+      <div class="modal__top">
+        <div class="modal__title" data-modal-title>Фото</div>
+        <button class="btn btn--sm modal__close" data-modal-close type="button">Закрыть</button>
+      </div>
+      <img class="modal__img" data-modal-img alt="Фото">
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

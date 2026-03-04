@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Счастливая гимнастика - детская школа</title>
+  <meta name="description" content="Детская школа гимнастики 3–16 лет: направления, расписание, тренеры, запись." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+
+  <div class="topbar">
+    <div class="container">
+      <div class="header">
+        <a class="brand" href="index.html">
+          <div class="brand__logo" aria-hidden="true"></div>
+          <div class="brand__text">
+            <div class="brand__name">Счастливая гимнастика</div>
+            <div class="brand__tag">Красноярское “ЦСР №1”</div>          </div>
+        </a>
+
+        <nav class="nav" aria-label="Основное меню">
+          <a class="active" href="index.html">Главная</a>
+          <a href="directions.html">Направления</a>
+          <a href="online.html">Онлайн-занятия</a>
+          <a href="gallery.html">Галерея</a>
+          <a href="team.html">Тренеры</a>
+          <a href="infocenter.html">Инфоцентр</a>
+          <a href="franchise.html">Франшиза</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="header__right">
+          <span class="pill">Город: <strong>Красноярск</strong></span>
+          <a class="pill" href="tel:+78005553535"><strong>+7 (800) 555-35-35</strong></a>
+          <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Оплатить</a>
+          <a class="btn btn--brand btn--sm" href="#signup">Записаться</a>
+          <button class="burger" data-burger aria-label="Открыть меню">≡</button>
+        </div>
+      </div>
+
+      <div class="mobileNav" data-mobile-nav>
+        <a class="active" href="index.html">Главная</a>
+        <a href="directions.html">Направления</a>
+        <a href="online.html">Онлайн-занятия</a>
+        <a href="gallery.html">Галерея</a>
+        <a href="team.html">Тренеры</a>
+        <a href="infocenter.html">Инфоцентр</a>
+        <a href="franchise.html">Франшиза</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="bubbles">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+      <div class="container">
+        <div class="hero__grid">
+          <div class="card hero__left">
+            <span class="kicker">Дети 3–16 лет • набор в группы</span>
+            <h1 class="h1">Школа, где ребёнок растёт сильным и уверенным</h1>
+            <p class="lead">
+              Тренировки с бережным подходом: координация, гибкость, осанка и дисциплина.
+              Начните с пробного занятия - и уже потом решите, подходит ли формат.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--brand" href="#signup">Записаться на пробное</a>
+              <a class="btn btn--ghost" href="directions.html">Посмотреть направления</a>
+              <a class="btn btn--ghost" href="online.html">Онлайн-занятия</a>
+            </div>
+
+            <div class="hero__meta">
+              <div class="badge"><strong>С 3 лет</strong><br/><small>программы по возрастам</small></div>
+              <div class="badge"><strong>Команда</strong><br/><small>тренеры с опытом</small></div>
+              <div class="badge"><strong>События</strong><br/><small>выступления и сборы</small></div>
+            </div>
+          </div>
+
+          <div class="card hero__right" id="signup">
+            <div class="card form">
+              <h3>Запись на пробное занятие</h3>
+              <form data-form>
+                <div class="grid2">
+                  <div class="field">
+                    <div class="label">Имя родителя *</div>
+                    <input class="input" name="parent_name" required placeholder="Например, Анна" />
+                  </div>
+                  <div class="field">
+                    <div class="label">Телефон *</div>
+                    <input class="input" name="phone" required placeholder="+7 ..." />
+                  </div>
+                </div>
+
+                <div class="grid2">
+                  <div class="field">
+                    <div class="label">Имя ребёнка *</div>
+                    <input class="input" name="child_name" required placeholder="Например, София" />
+                  </div>
+                  <div class="field">
+                    <div class="label">Возраст ребёнка *</div>
+                    <input class="input" name="child_age" type="number" required min="3" max="16" placeholder="3–16" />
+                  </div>
+                </div>
+
+                <div class="grid2">
+                  <div class="field">
+                    <div class="label">Направление</div>
+                    <select class="select" name="direction">
+                      <option value="">Выберите</option>
+                      <option>Художественная гимнастика</option>
+                      <option>Эстетическая гимнастика</option>
+                      <option>Общее физическое развитие</option>
+                      <option>Футбол</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <div class="label">Удобное время</div>
+                    <select class="select" name="time">
+                      <option value="">Любое</option>
+                      <option>Утро</option>
+                      <option>День</option>
+                      <option>Вечер</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form__actions">
+                  <button class="btn btn--brand" type="submit">Отправить заявку</button>
+                  <a class="btn" href="contacts.html">Как нас найти</a>
+                </div>
+                <div class="note">
+                  Нажимая “Отправить”, вы соглашаетесь на обработку данных для связи по заявке.
+                </div>
+              </form>
+            </div>
+
+            <div class="card" style="padding:14px;">
+              <div style="color:var(--muted); font-size:12px;">Быстрый контакт</div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+                <a class="btn btn--sm" href="tel:+79233554158">Позвонить</a>
+                <a class="btn btn--sm" href="contacts.html#write">Написать</a>
+                <a class="btn btn--sm" href="infocenter.html#schedule">Расписание</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="advantages">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="h2">Почему родителям спокойно</h2>
+            <p class="sub">Понятный процесс: запись → пробное → подходящая группа.</p>
+          </div>
+          <a class="btn btn--sm" href="team.html">Тренерский состав</a>
+        </div>
+
+        <div class="cards">
+          <div class="card tile">
+            <h3>Безопасность</h3>
+            <p>Нагрузка по возрасту. Мягкая адаптация без перегруза.</p>
+          </div>
+          <div class="card tile">
+            <h3>Ранний старт</h3>
+            <p>Группы от 3 лет, ребёнок втягивается спокойно.</p>
+          </div>
+          <div class="card tile">
+            <h3>Прогресс</h3>
+            <p>Осанка, гибкость, координация - шаг за шагом.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery-preview">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="h2">Фото с занятий</h2>
+            <p class="sub">Кликабельно - откроется просмотр.</p>
+          </div>
+          <a class="btn btn--sm" href="gallery.html">Вся галерея</a>
+        </div>
+
+        <div class="gallery">
+          <div class="g-item" data-g-item data-title="Тренировки">
+            <img src="assets/img/6b4b8e4bf8e24d73b98d536fd0bb6f94.jpg" alt="Тренировки">
+            <div class="cap">Тренировки</div>
+          </div>
+          <div class="g-item" data-g-item data-title="Соревнования">
+            <img src="assets/img/detskaya-shkola-rastyazhki-piter.jpg" alt="Соревнования">
+            <div class="cap">Соревнования</div>
+          </div>
+          <div class="g-item" data-g-item data-title="Праздники">
+            <img src="assets/img/sorevnovaniya-po-hudozhestvennoj-gimnastike.jpg" alt="Праздники">
+            <div class="cap">Праздники</div>
+          </div>
+          <div class="g-item" data-g-item data-title="Наши чемпионы">
+            <img src="assets/img/v-kakuyu-sekciyu-otdat-devochku-spb.jpg" alt="Наши чемпионы">
+            <div class="cap">Наши чемпионы</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="card" style="padding:14px;">
+          <strong>Счастливая гимнастика</strong><br/>
+          <small>Онлайн-запись • расписание • цены • тренеры • события</small>
+          <div class="footlinks">
+            <a href="directions.html">Направления</a>
+            <a href="infocenter.html">Инфоцентр</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+        </div>
+        <div class="card" style="padding:14px;">
+          <div><small>Телефон</small><br/><a href="tel:+79233554158"><strong>+7 (800) 555-35-35</strong></a></div>
+          <div style="margin-top:10px;"><small>Оплата</small><br/>
+            <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Перейти к оплате</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; color:var(--muted); font-size:12px;">
+        © <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-modal aria-hidden="true">
+    <div class="modal__card">
+      <div class="modal__top">
+        <div class="modal__title" data-modal-title>Фото</div>
+        <button class="btn btn--sm modal__close" data-modal-close type="button">Закрыть</button>
+      </div>
+      <img class="modal__img" data-modal-img alt="Фото">
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

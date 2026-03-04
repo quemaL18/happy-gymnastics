@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Оплата занятий - Счастливая гимнастика</title>
+  <meta name="description" content="Демо-оплата занятий через СБП (QR)" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .payWrap{display:grid; grid-template-columns: 1fr; gap:16px}
+    .payHero{
+      position: relative;
+      overflow:hidden;
+      border:1px solid rgba(108,92,231,.16);
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(255,179,217,.42), transparent 55%),
+        radial-gradient(700px 380px at 90% 20%, rgba(108,92,231,.22), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.72));
+    }
+    .payCard{padding:16px}
+    .payInfo{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 920px){ .payInfo{grid-template-columns:1fr} }
+
+    .payStat{
+      padding:12px 14px;
+      border-radius:18px;
+      border:1px solid rgba(35,26,38,.10);
+      background: rgba(255,255,255,.75);
+    }
+    .payStat .t{font-weight:900}
+    .payStat .s{margin-top:6px; color:var(--muted); font-size:13px; line-height:1.35}
+
+    .payBadge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(35,26,38,.10);
+      background: rgba(255,255,255,.70);
+      color: var(--muted);
+      font-size: 12px;
+      white-space:nowrap;
+    }
+    .payBadge.ok{
+      border-color: rgba(108,92,231,.22);
+      background: rgba(108,92,231,.10);
+      color: var(--text);
+    }
+
+    .payBtn{position:relative; overflow:hidden}
+    .payBtn::before{
+      content:'';
+      position:absolute; inset:0;
+      background: radial-gradient(circle at var(--x,50%) var(--y,50%),
+        rgba(255,255,255,.45), transparent 55%);
+      opacity:0;
+      transition:.25s var(--ease);
+    }
+    .payBtn:hover::before{opacity:1}
+    .input:hover,.select:hover{transform: translateY(-1px); border-color: rgba(108,92,231,.18)}
+
+    .stepLine{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .stepDot{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(35,26,38,.08);
+      background: rgba(255,255,255,.65);
+    }
+    .stepDot.done{border-color: rgba(108,92,231,.22); background: rgba(108,92,231,.08); color: var(--text)}
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="header">
+        <a class="brand" href="index.html">
+          <div class="brand__logo" aria-hidden="true"></div>
+          <div class="brand__text">
+            <div class="brand__name">Счастливая гимнастика</div>
+            <div class="brand__tag">Красноярское “ЦСР №1”</div>          </div>
+        </a>
+
+        <nav class="nav" aria-label="Основное меню">
+          <a href="index.html">Главная</a>
+          <a href="directions.html">Направления</a>
+          <a href="online.html">Онлайн-занятия</a>
+          <a href="gallery.html">Галерея</a>
+          <a href="team.html">Тренеры</a>
+          <a href="infocenter.html">Инфоцентр</a>
+          <a href="franchise.html">Франшиза</a>
+          <a href="contacts.html">Контакты</a>
+          <a class="active" href="pay.html">Оплата</a>
+        </nav>
+
+        <div class="header__right">
+          <span class="pill">Город: <strong>Красноярск</strong></span>
+          <a class="pill" href="tel:+78005553535"><strong>+7 (800) 555-35-35</strong></a>
+          <a class="btn btn--sm" href="pay.html">Оплатить</a>
+          <a class="btn btn--brand btn--sm" href="contacts.html#write">Записаться</a>
+          <button class="burger" data-burger aria-label="Открыть меню">≡</button>
+        </div>
+      </div>
+
+      <div class="mobileNav" data-mobile-nav>
+        <a href="index.html">Главная</a>
+        <a href="directions.html">Направления</a>
+        <a href="online.html">Онлайн-занятия</a>
+        <a href="gallery.html">Галерея</a>
+        <a href="team.html">Тренеры</a>
+        <a href="infocenter.html">Инфоцентр</a>
+        <a href="franchise.html">Франшиза</a>
+        <a href="contacts.html">Контакты</a>
+        <a class="active" href="pay.html">Оплата</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="section" style="padding-top:26px;">
+      <div class="container">
+
+        <div class="card payHero" style="padding:18px;">
+          <span class="kicker">Оплата</span>
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <h1 class="h2" style="margin:0;">Оплата занятий</h1>
+              <p class="sub" style="margin-top:8px;">
+                Нажмите “Оплатить по QR” - система покажет успешную оплату.
+              </p>
+            </div>
+            <div class="payBadge" data-pay-badge>ожидает заполнения</div>
+          </div>
+
+          <div class="stepLine" aria-label="Шаги оплаты">
+            <div class="stepDot" data-step="1">1) Заполнение</div>
+            <div class="stepDot" data-step="2">2) “Оплата по QR”</div>
+            <div class="stepDot" data-step="3">3) Чек в Telegram</div>
+          </div>
+        </div>
+
+        <div class="payWrap" >
+
+          <div class="card payCard" >
+            <div class="section__head" style="margin-bottom:10px;">
+              <div>
+                <h2 class="h2" style="margin:0;">Данные оплаты</h2>
+              </div>
+              <button class="btn btn--sm" type="button" data-fill-demo>Заполнить пример</button>
+            </div>
+
+            <form data-pay-form>
+              <div class="grid2">
+                <div class="field">
+                  <div class="label">ФИО ребёнка *</div>
+                  <input class="input" name="child_fio" required placeholder="Например, Петрова Алиса Сергеевна" />
+                </div>
+                <div class="field">
+                  <div class="label">Возраст ребёнка *</div>
+                  <input class="input" name="age" type="number" required min="3" max="18" placeholder="3–18" />
+                </div>
+              </div>
+
+              <div class="grid2">
+                <div class="field">
+                  <div class="label">ФИО родителя *</div>
+                  <input class="input" name="parent_fio" required placeholder="Например, Петров Сергей Иванович" />
+                </div>
+                <div class="field">
+                  <div class="label">Тип абонемента *</div>
+                  <select class="select" name="plan" required>
+                    <option value="">Выберите</option>
+                    <option value="4 занятия">4 занятия</option>
+                    <option value="8 занятий">8 занятий</option>
+                    <option value="12 занятий">12 занятий</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid2">
+                <div class="field">
+                  <div class="label">Сумма (₽) *</div>
+                  <input class="input" name="amount" type="number" required min="1" step="1" placeholder="Например, 4500" />
+                </div>
+                <div class="field">
+                  <div class="label">E-mail *</div>
+                  <input class="input" name="email" type="email" required placeholder="name@mail.ru" />
+                </div>
+              </div>
+
+              <label class="check" style="margin:10px 0 6px;">
+                <input type="checkbox" name="consent" required />
+                <span><strong>Согласен</strong> на обработку персональных данных *</span>
+              </label>
+              <div class="form__actions" style="margin-top:12px;">
+                <button class="btn btn--brand payBtn" type="submit" data-pay-submit>Оплатить по QR</button>
+                <button class="btn" type="button" data-reset>Сбросить</button>
+              </div>
+
+              <div class="formMsg" data-pay-msg></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="card" style="padding:14px;">
+          <strong>Счастливая гимнастика</strong><br/>
+          <small>Онлайн-запись • расписание • цены • тренеры • события</small>
+          <div class="footlinks">
+            <a href="directions.html">Направления</a>
+            <a href="infocenter.html">Инфоцентр</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+        </div>
+        <div class="card" style="padding:14px;">
+          <div><small>Телефон</small><br/><a href="tel:+79233554158"><strong>+7 (800) 555 35-35</strong></a></div>
+          <div style="margin-top:10px;"><small>Оплата</small><br/>
+            <a class="btn btn--sm" href="pay.html">Перейти к оплате</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; color:var(--muted); font-size:12px;">
+        © <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+    <script>
+        // локажльнйы js
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    (function payNoQrDemo(){
+      const form = document.querySelector('[data-pay-form]');
+      if(!form) return;
+
+      const badge = document.querySelector('[data-pay-badge]');
+      const msg = document.querySelector('[data-pay-msg]');
+      const fill = document.querySelector('[data-fill-demo]');
+      const reset = document.querySelector('[data-reset]');
+
+      const step = (n, done) => {
+        const el = document.querySelector('[data-step="'+n+'"]');
+        if(!el) return;
+        el.classList.toggle('done', !!done);
+      };
+
+      const setBadge = (text, ok) => {
+        if(!badge) return;
+        badge.textContent = text;
+        badge.classList.toggle('ok', !!ok);
+      };
+
+      const money = (v) => {
+        const n = Number(v || 0);
+        if(!Number.isFinite(n) || n <= 0) return '—';
+        return new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
+      };
+
+      const uid = () => (Math.random().toString(16).slice(2) + Date.now().toString(16)).slice(0, 12).toUpperCase();
+
+      const clearMsg = () => {
+        if(!msg) return;
+        msg.className = 'formMsg';
+        msg.textContent = '';
+      };
+
+      const showMsg = (text, ok) => {
+        if(!msg) return;
+        msg.className = 'formMsg show ' + (ok ? 'ok' : 'err');
+        msg.textContent = text;
+      };
+
+      const validate = () => {
+        const required = form.querySelectorAll('[required]');
+        for(const el of required){
+          const ok = el.type === 'checkbox' ? el.checked : String(el.value || '').trim();
+          if(!ok){ el.focus(); return false; }
+        }
+        return true;
+      };
+
+      document.querySelectorAll('.payBtn').forEach((btn) => {
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          btn.style.setProperty('--x', ((e.clientX - r.left) / r.width) * 100 + '%');
+          btn.style.setProperty('--y', ((e.clientY - r.top) / r.height) * 100 + '%');
+        });
+      });
+
+      const live = () => {
+        const ok = String(form.amount.value||'').trim() && form.plan.value;
+        step(1, !!ok);
+        setBadge(ok ? 'готово к оплате' : 'ожидает заполнения', !!ok);
+      };
+      form.addEventListener('input', live);
+      live();
+
+      if(fill){
+        fill.addEventListener('click', () => {
+          form.child_fio.value = 'Петрова Алиса Сергеевна';
+          form.age.value = '7';
+          form.parent_fio.value = 'Петров Сергей Иванович';
+          form.plan.value = '8 занятий';
+          form.amount.value = '4500';
+          form.email.value = 'demo@mail.ru';
+          form.consent.checked = true;
+          clearMsg();
+          live();
+        });
+      }
+
+      if(reset){
+        reset.addEventListener('click', () => {
+          form.reset();
+          clearMsg();
+          step(1,false); step(2,false); step(3,false);
+          setBadge('ожидает заполнения', false);
+        });
+      }
+
+      const sendReceiptToTelegram = (receiptText) => {
+        const shareUrl = 'https://t.me/share/url?url=' +
+          encodeURIComponent(location.href) +
+          '&text=' + encodeURIComponent(receiptText);
+
+        window.open(shareUrl, '_blank', 'noopener');
+      };
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        clearMsg();
+
+        if(!validate()){
+          showMsg('Заполни обязательные поля.', false);
+          return;
+        }
+
+        step(2, true);
+        setBadge('оплата проходит…', false);
+        showMsg('Оплата обрабатывается…', true);
+
+        const receiptId = uid();
+        const receiptText =
+  'Чек (демо) • Счастливая гимнастика\n' +
+  'ID: ' + receiptId + '\n' +
+  'Ребёнок: ' + form.child_fio.value.trim() + ' (' + form.age.value.trim() + ' лет)\n' +
+  'Родитель: ' + form.parent_fio.value.trim() + '\n' +
+  'Абонемент: ' + form.plan.value + '\n' +
+  'Сумма: ' + money(form.amount.value) + '\n' +
+  'E-mail: ' + form.email.value.trim() + '\n' +
+  'Статус: ОПЛАЧЕНО ✅';
+
+        setTimeout(() => {
+          setBadge('оплата успешна', true);
+          showMsg('Оплата успешна Отправляем чек в Telegram…', true);
+
+          setTimeout(() => {
+            step(3, true);
+            showMsg('Чек отправлен в Telegram.', true);
+            sendReceiptToTelegram(receiptText);
+          }, 600);
+
+        }, 900);
+      });
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!-- contacts.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Контакты - Счастливая гимнастика</title>
+  <meta name="description" content="Контакты школы: телефон, адрес, режим работы, запись." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+      margin-top:12px;
+    }
+    @media (max-width: 980px){
+      .contactGrid{ grid-template-columns: 1fr; }
+    }
+
+    .contactCard{ padding:18px; }
+    .contactList{ margin-top:12px; display:grid; gap:12px; }
+
+    .cItem{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(35,26,38,.08);
+      background: rgba(255,255,255,.65);
+    }
+    .cIcon{
+      width:42px;
+      height:42px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background: rgba(108,92,231,.10);
+      border:1px solid rgba(108,92,231,.18);
+      box-shadow: 0 12px 32px rgba(108,92,231,.12);
+      flex:0 0 auto;
+      font-weight:900;
+      letter-spacing:.5px;
+      font-size:12px;
+    }
+    .cBody strong{ display:block; margin-bottom:4px; }
+    .cBody small{ color:var(--muted); display:block; line-height:1.35; }
+
+    .contactActions{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .mapCard{ padding:14px; overflow:hidden; }
+    .mapMock{
+      border-radius:18px;
+      border:1px solid rgba(35,26,38,.10);
+      background:
+        radial-gradient(900px 320px at 0% 0%, rgba(255,179,217,.22), transparent 60%),
+        radial-gradient(700px 260px at 100% 0%, rgba(108,92,231,.18), transparent 60%),
+        rgba(255,255,255,.78);
+      box-shadow: 0 18px 60px rgba(35,26,38,.10);
+      min-height: 320px;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .mapMockTop{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .mapPin{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(35,26,38,.10);
+      color: var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .mapTitle{
+      margin:10px 0 6px;
+      font-size:18px;
+    }
+    .mapText{
+      margin:0;
+      color:var(--muted);
+      line-height:1.45;
+      max-width: 520px;
+    }
+    .mapFoot{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    /* форма */
+    .contactForm{ padding:18px; }
+    .contactForm .grid2{ grid-template-columns: 1fr 1fr; }
+    @media (max-width: 520px){
+      .contactForm .grid2{ grid-template-columns: 1fr; }
+    }
+
+    /* маленький блок “быстро” */
+    .quickRow{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 980px){
+      .quickRow{ grid-template-columns: 1fr; }
+    }
+    .quick{
+      padding:14px;
+    }
+    .quick strong{ display:block; margin-bottom:4px; }
+    .quick small{ color:var(--muted); }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="header">
+        <a class="brand" href="index.html">
+          <div class="brand__logo" aria-hidden="true"></div>
+          <div class="brand__text">
+            <div class="brand__name">Счастливая гимнастика</div>
+            <div class="brand__tag">Красноярское “ЦСР №1”</div>          </div>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Главная</a>
+          <a href="directions.html">Направления</a>
+          <a href="online.html">Онлайн-занятия</a>
+          <a href="gallery.html">Галерея</a>
+          <a href="team.html">Тренеры</a>
+          <a href="infocenter.html">Инфоцентр</a>
+          <a href="franchise.html">Франшиза</a>
+          <a class="active" href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="header__right">
+          <span class="pill">Город: <strong>Красноярск</strong></span>
+          <a class="pill" href="tel:+78005553535"><strong>+7 (800) 555-35-35</strong></a>
+          <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Оплатить</a>
+          <a class="btn btn--brand btn--sm" href="#write">Записаться</a>
+          <button class="burger" data-burger aria-label="Открыть меню">≡</button>
+        </div>
+      </div>
+
+      <div class="mobileNav" data-mobile-nav>
+        <a href="index.html">Главная</a>
+        <a href="directions.html">Направления</a>
+        <a href="online.html">Онлайн-занятия</a>
+        <a href="gallery.html">Галерея</a>
+        <a href="team.html">Тренеры</a>
+        <a href="infocenter.html">Инфоцентр</a>
+        <a href="franchise.html">Франшиза</a>
+        <a class="active" href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h1 class="h2" style="font-size:34px;">Контакты</h1>
+          <p class="sub">Свяжитесь с нами или оставьте заявку - администратор ответит и подберёт группу.</p>
+        </div>
+        <a class="btn btn--sm" href="infocenter.html#schedule">Расписание</a>
+      </div>
+
+      <div class="quickRow">
+        <div class="card quick">
+          <strong>Быстро записаться</strong>
+          <small>Оставьте заявку - подберём формат и время.</small>
+          <div style="margin-top:10px;">
+            <a class="btn btn--brand btn--sm" href="#write">Записаться</a>
+          </div>
+        </div>
+        <div class="card quick">
+          <strong>Оплата</strong>
+          <small>Демо-оплата и чек на странице оплаты.</small>
+          <div style="margin-top:10px;">
+            <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Перейти к оплате</a>
+          </div>
+        </div>
+        <div class="card quick">
+          <strong>Онлайн-занятия</strong>
+          <small>Если не получается приезжать в зал.</small>
+          <div style="margin-top:10px;">
+            <a class="btn btn--sm" href="online.html">Открыть</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contactGrid">
+        <!-- LEFT -->
+        <div class="card contactCard">
+          <span class="kicker">Связь</span>
+          <h2 class="h2" style="font-size:26px; margin-top:6px;">Как с нами связаться</h2>
+
+          <div class="contactList">
+            <div class="cItem">
+              <div class="cIcon">TEL</div>
+              <div class="cBody">
+                <strong>Телефон</strong>
+                <small><a href="tel:+78005553535">+7 (800) 555-35-35</a></small>
+                <small>Звонок, Max, WhatsApp, Telegram</small>
+              </div>
+            </div>
+
+            <div class="cItem">
+              <div class="cIcon">TIME</div>
+              <div class="cBody">
+                <strong>Режим работы</strong>
+                <small>Пн–Сб: 09:00–20:00</small>
+                <small>Вс: выходной</small>
+              </div>
+            </div>
+
+            <div class="cItem">
+              <div class="cIcon">MAIL</div>
+              <div class="cBody">
+                <strong>Рабочая почта</strong>
+                <small><a href="mailto:info@gymnastika-demo.ru">mashatokmashova@mail.ru</a></small>
+                <small>Для партнёров и вопросов</small>
+              </div>
+            </div>
+
+            <div class="cItem">
+              <div class="cIcon">SOC</div>
+              <div class="cBody">
+                <strong>Соцсети</strong>
+                <small>VK / Telegram / Max</small>
+                <small style="opacity:.8"></small>
+              </div>
+            </div>
+          </div>
+
+          <div class="contactActions">
+            <a class="btn btn--brand btn--sm" href="#write">Записаться</a>
+            <a class="btn btn--sm" href="franchise.html">Франшиза</a>
+            <a class="btn btn--sm" href="directions.html">Направления</a>
+          </div>
+        </div>
+        <div>
+          <div class="card mapCard">
+            <div class="mapMock">
+              <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/62/krasnoyarsk/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Красноярск</a><a href="https://yandex.ru/maps/62/krasnoyarsk/house/sudostroitelnaya_ulitsa_50/bUsYfgRpQEAOQFtvfXV5cHtnZg==/?ll=92.840199%2C55.982173&utm_medium=mapframe&utm_source=maps&z=18.6" style="color:#eee;font-size:12px;position:absolute;top:14px;">Судостроительная улица, 50 - Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=92.840199%2C55.982173&mode=whatshere&whatshere%5Bpoint%5D=92.839591%2C55.981780&whatshere%5Bzoom%5D=17&z=18.6" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+              <div class="mapMockTop">
+                <span class="mapPin">📍 Красноярск</span>
+                <span class="mapPin">Карта</span>
+              </div>
+
+              <div>
+                <h3 class="mapTitle">Как добраться</h3>
+                <p class="mapText">
+                  В любом навигаторе - Судостроительная 50
+                </p>
+              </div>
+
+              <div class="mapFoot">
+                <a class="btn btn--sm" href="directions.html">Посмотреть направления</a>
+                <a class="btn btn--sm" href="infocenter.html#schedule">Расписание</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card form contactForm" id="write" style="margin-top:14px;">
+            <h3>Записаться / задать вопрос</h3>
+            <form data-form>
+              <div class="grid2">
+                <div class="field">
+                  <div class="label">Имя родителя *</div>
+                  <input class="input" name="parent" required />
+                </div>
+                <div class="field">
+                  <div class="label">Телефон *</div>
+                  <input class="input" name="phone" required />
+                </div>
+              </div>
+
+              <div class="grid2">
+                <div class="field">
+                  <div class="label">Имя ребёнка</div>
+                  <input class="input" name="child" />
+                </div>
+                <div class="field">
+                  <div class="label">Возраст</div>
+                  <input class="input" type="number" name="age" min="3" max="16" />
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="label">Интересует</div>
+                <select class="select" name="interest">
+                  <option value="">Выберите</option>
+                  <option>Художественная гимнастика</option>
+                  <option>Эстетическая гимнастика</option>
+                  <option>ОФП</option>
+                  <option>Футбол</option>
+                  <option>Онлайн-занятия</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <div class="label">Комментарий</div>
+                <textarea class="textarea" name="comment" placeholder="Например: удобное время / опыт / цель"></textarea>
+              </div>
+
+              <div class="form__actions">
+                <button class="btn btn--brand" type="submit">Отправить</button>
+                <a class="btn" href="pay.html" target="_blank" rel="noopener">Оплата</a>
+              </div>
+
+              <div class="note">После заявки администратор свяжется с вами.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="card" style="padding:14px;">
+          <strong>Счастливая гимнастика</strong><br/>
+          <small>Онлайн-запись • расписание • цены • тренеры • события</small>
+          <div class="footlinks">
+            <a href="directions.html">Направления</a>
+            <a href="infocenter.html">Инфоцентр</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+        </div>
+        <div class="card" style="padding:14px;">
+          <div><small>Телефон</small><br/><a href="tel:+78005553535"><strong>+7 (800) 555-35-35</strong></a></div>
+          <div style="margin-top:10px;"><small>Оплата</small><br/>
+            <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Перейти к оплате</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; color:var(--muted); font-size:12px;">
+        © <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" data-modal aria-hidden="true">
+    <div class="modal__card">
+      <div class="modal__top">
+        <div class="modal__title" data-modal-title>Фото</div>
+        <button class="btn btn--sm modal__close" data-modal-close type="button">Закрыть</button>
+      </div>
+      <img class="modal__img" data-modal-img alt="Фото">
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
