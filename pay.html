@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ru">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Оплата занятий - Счастливая гимнастика</title>
+<meta name="description" content="Оплата занятий через СБП (QR)">
+
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  body{
+  background:
+    linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
+    url("assets/img/decor/cveti.png");
+
+  background-size: contain;
+  background-position: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div class="container">
+
+<div class="header">
+
+<a class="brand" href="index.html">
+
+<div class="brand__logo"></div>
+
+<div class="brand__text">
+<div class="brand__name">Счастливая гимнастика</div>
+<div class="brand__tag">Красноярское “ЦСР №1”</div>
+</div>
+
+</a>
+
+
+<nav class="nav" aria-label="Основное меню">
+
+<a href="index.html">Главная</a>
+<a href="directions.html">Направления</a>
+<a href="online.html">Онлайн-занятия</a>
+<a href="gallery.html">Галерея</a>
+<a href="team.html">Тренеры</a>
+<a href="infocenter.html">Инфоцентр</a>
+<a href="franchise.html">Франшиза</a>
+<a href="contacts.html">Контакты</a>
+<a class="active" href="pay.html">Оплата</a>
+
+</nav>
+
+
+<div class="header__right">
+
+<span class="pill">Город: <strong>Красноярск</strong></span>
+
+<a class="pill" href="tel:+78005553535">
+<strong>+7 (800) 555-35-35</strong>
+</a>
+
+<a class="btn btn--sm" href="pay.html">
+Оплатить
+</a>
+
+<a class="btn btn--brand btn--sm" href="contacts.html#write">
+Записаться
+</a>
+
+<button class="burger" data-burger aria-label="Открыть меню">
+≡
+</button>
+
+</div>
+
+</div>
+
+
+<div class="mobileNav" data-mobile-nav>
+
+<a href="index.html">Главная</a>
+<a href="directions.html">Направления</a>
+<a href="online.html">Онлайн-занятия</a>
+<a href="gallery.html">Галерея</a>
+<a href="team.html">Тренеры</a>
+<a href="infocenter.html">Инфоцентр</a>
+<a href="franchise.html">Франшиза</a>
+<a href="contacts.html">Контакты</a>
+<a class="active" href="pay.html">Оплата</a>
+
+</div>
+
+</div>
+</div>
+
+
+
+<main>
+
+<section class="section pay-section">
+
+<div class="container">
+
+
+<div class="card payHero">
+
+<span class="kicker">Оплата</span>
+
+<div class="payHeroTop">
+
+<div>
+
+<h1 class="h2">Оплата занятий</h1>
+
+<p class="sub">
+Нажмите “Оплатить по QR” — система создаст платёж и покажет окно подтверждения.
+</p>
+
+</div>
+
+<div class="payBadge" data-pay-badge>
+ожидает заполнения
+</div>
+
+</div>
+
+
+<div class="stepLine" aria-label="Шаги оплаты">
+
+<div class="stepDot" data-step="1">1) Заполнение</div>
+<div class="stepDot" data-step="2">2) “Оплата по QR”</div>
+<div class="stepDot" data-step="3">3) Подтверждение оплаты</div>
+
+</div>
+
+</div>
+
+
+
+<div class="payWrap">
+
+
+<div class="card payCard">
+
+
+<div class="section__head payHead">
+
+<h2 class="h2">Данные оплаты</h2>
+
+<button class="btn btn--sm" type="button" data-fill-demo>
+Заполнить пример
+</button>
+
+</div>
+
+
+
+<form data-pay-form>
+
+
+<div class="grid2">
+
+<div class="field">
+
+<div class="label">ФИО ребёнка *</div>
+
+<input class="input"
+name="child_fio"
+required
+placeholder="Например, Петрова Алиса Сергеевна">
+
+</div>
+
+
+<div class="field">
+
+<div class="label">Возраст ребёнка *</div>
+
+<input
+class="input"
+name="age"
+type="number"
+required
+min="3"
+max="18"
+placeholder="3–18">
+
+</div>
+
+</div>
+
+
+
+<div class="grid2">
+
+<div class="field">
+
+<div class="label">ФИО родителя *</div>
+
+<input
+class="input"
+name="parent_fio"
+required
+placeholder="Например, Петров Сергей Иванович">
+
+</div>
+
+
+<div class="field">
+
+<div class="label">Тип абонемента *</div>
+
+<select class="select" name="plan" required>
+
+<option value="">Выберите</option>
+<option value="4 занятия">4 занятия</option>
+<option value="8 занятий">8 занятий</option>
+<option value="12 занятий">12 занятий</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+<div class="grid2">
+
+<div class="field">
+
+<div class="label">Сумма (₽) *</div>
+
+<input
+class="input"
+name="amount"
+type="number"
+required
+min="1"
+step="1"
+placeholder="Например, 4500">
+
+</div>
+
+
+<div class="field">
+
+<div class="label">E-mail *</div>
+
+<input
+class="input"
+name="email"
+type="email"
+required
+placeholder="name@mail.ru">
+
+</div>
+
+</div>
+
+
+
+<label class="check consent">
+
+<input type="checkbox" name="consent" required>
+
+<span>
+<strong>Согласен</strong> на обработку персональных данных *
+</span>
+
+</label>
+
+
+
+<div class="form__actions">
+
+<button
+class="btn btn--brand payBtn"
+type="submit"
+data-pay-submit>
+
+Оплатить по QR
+
+</button>
+
+
+<button class="btn" type="button" data-reset>
+Сбросить
+</button>
+
+</div>
+
+
+
+<div class="formMsg" data-pay-msg></div>
+
+</form>
+
+<div id="fake-payment-box" class="card" style="display:none; margin-top:16px; padding:18px;">
+  <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:flex-start;">
+    <div>
+      <div class="kicker">Оплата</div>
+      <h3 style="margin:10px 0 6px;">Оплата по QR</h3>
+      <p style="margin:0; color:var(--muted);">
+        Отсканируйте QR или подтвердите оплату кнопкой ниже.
+      </p>
+    </div>
+
+    <div class="payBadge" id="fake-payment-status-badge">
+      ожидание оплаты
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px; align-items:start;">
+    <div>
+      <div style="border:1px solid rgba(35,26,38,.10); border-radius:18px; padding:14px; background:rgba(255,255,255,.7);">
+        <div style="margin-bottom:8px;"><strong>Сумма:</strong> <span id="fake-payment-amount">—</span> ₽</div>
+        <div style="margin-bottom:8px;"><strong>Получатель:</strong> Счастливая гимнастика</div>
+        <div style="margin-bottom:8px;"><strong>Статус:</strong> <span id="fake-payment-status-text">Ожидание оплаты</span></div>
+        <div><strong>ID платежа:</strong> <span id="fake-payment-id">—</span></div>
+      </div>
+
+      <div class="form__actions" style="margin-top:14px;">
+        <button type="button" class="btn btn--brand" id="confirm-payment-btn">
+          Я оплатил
+        </button>
+        <button type="button" class="btn" id="cancel-payment-btn">
+          Отмена
+        </button>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:center;">
+      <img
+        id="fake-payment-qr"
+        src=""
+        alt="QR оплаты"
+        style="width:220px; max-width:100%; border-radius:18px; border:1px solid rgba(35,26,38,.10); background:#fff; padding:10px;"
+      >
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer__grid">
+
+<div class="card footerCard">
+
+<strong>Счастливая гимнастика</strong><br>
+
+<small>
+Онлайн-запись • расписание • цены • тренеры • события
+</small>
+
+<div class="footlinks">
+
+<a href="directions.html">Направления</a>
+<a href="infocenter.html">Инфоцентр</a>
+<a href="contacts.html">Контакты</a>
+
+</div>
+
+</div>
+
+
+
+<div class="card footerCard">
+
+<div>
+
+<small>Телефон</small><br>
+
+<a href="tel:+79233554158">
+<strong>+7 (800) 555 35-35</strong>
+</a>
+
+</div>
+
+
+<div class="footerPay">
+
+<small>Оплата</small><br>
+
+<a class="btn btn--sm" href="pay.html">
+Перейти к оплате
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footerCopy">
+
+© <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<script src="assets/js/main.js"></script>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
