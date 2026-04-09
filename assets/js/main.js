@@ -28,8 +28,14 @@ const prefersReducedMotion =
     }, remaining);
   });
 })();
+const burger = document.querySelector('[data-burger]');
+const mobileNav = document.querySelector('[data-mobile-nav]');
 
-// ===== SMOOTH ANCHORS =====
+if (burger && mobileNav) {
+  burger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+}
 document.addEventListener('click', (e) => {
   const a = e.target.closest('a[href^="#"]');
   if (!a) return;
@@ -47,7 +53,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ===== ACCORDION =====
 document.querySelectorAll('.acc button').forEach((btn) => {
   btn.addEventListener('click', () => {
     const acc = btn.closest('.acc');
@@ -102,7 +107,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
 
-// ===== HELPERS =====
 function ensureFormMessage(form) {
   let msg = form.querySelector('.formMsg');
   if (!msg) {
@@ -146,7 +150,6 @@ function validateRequiredFields(form) {
   return true;
 }
 
-// ===== APPLICATION FORMS -> save_application.php =====
 document.querySelectorAll('form[data-form]').forEach((form) => {
   const msg = ensureFormMessage(form);
 
@@ -160,7 +163,6 @@ document.querySelectorAll('form[data-form]').forEach((form) => {
 
     const raw = new FormData(form);
 
-    // Приводим разные формы сайта к единым именам для PHP
     const payload = new FormData();
     payload.append('parent_name', getValue(raw, 'parent_name', 'parent', 'name'));
     payload.append('phone', getValue(raw, 'phone'));
@@ -211,7 +213,6 @@ document.querySelectorAll('form[data-form]').forEach((form) => {
   });
 });
 
-// ===== PAYMENT FORM -> save_payment.php =====
 const payForm = document.querySelector('[data-pay-form]');
 
 if (payForm) {
@@ -420,9 +421,7 @@ if (payForm) {
   }
 }
 
-// ===== DOM READY =====
 document.addEventListener('DOMContentLoaded', () => {
-  // ===== ГЛОБАЛЬНЫЕ ПУЗЫРЬКИ =====
   const wrap = document.createElement('div');
   wrap.className = 'global-bubbles';
   document.body.prepend(wrap);
@@ -446,7 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
     wrap.appendChild(bubble);
   }
 
-  // ===== compact header on scroll =====
   const header = document.querySelector('.topbar');
   if (header) {
     window.addEventListener(
@@ -460,7 +458,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // ===== topbar scrolled class =====
   const topbar = document.querySelector('.topbar');
   if (topbar) {
     const onScroll = () => {
@@ -472,7 +469,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // ===== nav wheel horizontal scroll =====
   const nav = document.querySelector('.nav');
   if (nav) {
     nav.addEventListener(
@@ -487,7 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // ===== auto active link =====
   const links = document.querySelectorAll('.nav a');
   const path = location.pathname.split('/').pop() || 'index.html';
 
@@ -497,7 +492,6 @@ document.addEventListener('DOMContentLoaded', () => {
     else a.classList.remove('active');
   });
 
-  // ===== reveal =====
   const revealTargets = [
     '.section__head',
     '.card',
@@ -531,7 +525,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ===== FRANCHISE RIBBON =====
 (function () {
   const wrap = document.querySelector('.benefitWrap');
   if (!wrap) return;

@@ -2520,3 +2520,20 @@ grid-column:auto;
   from{ transform: rotate(0deg); }
   to{ transform: rotate(360deg); }
 }
+.mobileNav{  
+  display:none;  
+  position:absolute;  
+  top:70px;  
+  left:0;  
+  right:0;  
+  background:white;  
+  padding:16px;  
+  z-index:1000;  
+  box-shadow:0 10px 30px rgba(0,0,0,.1);  
+}  
+
+.mobileNav.open{  
+  display:flex;  
+  flex-direction:column;  
+  gap:10px;  
+}
