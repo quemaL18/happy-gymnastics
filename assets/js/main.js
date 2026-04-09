@@ -1,3 +1,7 @@
+const prefersReducedMotion =
+  window.matchMedia &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
 (function () {
   const start = Date.now();
   const minDuration = 1800;
