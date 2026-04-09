@@ -2537,3 +2537,157 @@ grid-column:auto;
   flex-direction:column;  
   gap:10px;  
 }
+/* под мобилу */
+@media (max-width: 768px){
+
+  .cards,
+  .team-grid,
+  .grid2,
+  .split,
+  .footer__grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .card,
+  .tile,
+  .team-main,
+  .team-info-card{
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: auto !important;
+  }
+
+  /* team */
+  .team-grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  .team-main{
+    grid-column: auto !important;
+  }
+
+  .team-row{
+    width: 100% !important;
+  }
+
+  .team-info{
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .team-btn{
+    width: 100% !important;
+    margin-top: 10px !important;
+    margin-left: 0 !important;
+  }
+
+  .team-col{
+    width: 100% !important;
+  }
+
+  .hero__grid,
+  .payWrap,
+  .contactGrid,
+  .dirGrid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .form,
+  .payCard,
+  .onlineForm,
+  .contactForm{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .input,
+  .select,
+  .textarea,
+  button,
+  .btn{
+    max-width: 100% !important;
+  }
+
+  .form__actions,
+  .hero__actions,
+  .dirActions{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .form__actions .btn,
+  .hero__actions .btn,
+  .dirActions .btn{
+    width: 100% !important;
+  }
+
+  .tableWrap{
+    overflow-x: auto !important;
+  }
+
+  img{
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .footer__grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  .pageDecor__item,
+  .heroDecor{
+    opacity: .35 !important;
+  }
+}
+
+@media (max-width: 480px){
+
+  .container{
+    width: 92% !important;
+    max-width: 92% !important;
+    padding: 0 !important;
+  }
+
+  .h1,
+  h1{
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+  }
+
+  .h2,
+  h2{
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+  }
+
+  .card,
+  .tile{
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .avatar{
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .avatar-lg{
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .pill{
+    max-width: 100%;
+  }
+
+  .btn,
+  .btn--sm{
+    min-height: 44px;
+  }
+}
