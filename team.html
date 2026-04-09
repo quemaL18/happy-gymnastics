@@ -64,6 +64,188 @@
     background-size: contain;
     background-position: center;
   }
+  /* ===== TEAM NEW LAYOUT ===== */
+
+.cards.team-grid{
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  gap:20px;
+  align-items:stretch;
+}
+
+.cards.team-grid > .team-main{
+  grid-column:1 / -1;
+  padding:20px;
+  transform:none !important;
+}
+
+.cards.team-grid > .team-card{
+  grid-column:span 4;
+  padding:22px 18px;
+  transform:none !important;
+  min-height:280px;
+}
+
+.cards.team-grid > .team-admin{
+  grid-column:4 / 10;
+  padding:22px 18px;
+  transform:none !important;
+  min-height:auto;
+}
+
+.cards.team-grid > .tile:nth-child(1),
+.cards.team-grid > .tile:nth-child(2),
+.cards.team-grid > .tile:nth-child(3){
+  transform:none !important;
+}
+
+.team-row--main{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.team-card__inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  height:100%;
+}
+
+.team-card__inner .avatar{
+  width:64px;
+  height:64px;
+  margin-bottom:14px;
+}
+
+.team-card__inner h3{
+  margin:0 0 8px;
+  line-height:1.2;
+}
+
+.team-card__inner .muted{
+  text-align:center;
+}
+
+.team-card__inner .tags{
+  justify-content:center;
+  margin-top:10px;
+}
+
+.team-card__inner .team-desc{
+  margin-top:14px;
+  line-height:1.5;
+}
+
+.team-main .team-info{
+  flex:1 1 auto;
+  min-width:240px;
+}
+
+.team-main .team-btn{
+  margin-left:auto;
+}
+
+.cards.team-grid .card{
+  background:rgba(255,255,255,.84);
+  box-shadow:0 14px 34px rgba(35,26,38,.08);
+}
+
+@media (max-width: 980px){
+  .cards.team-grid > .team-card{
+    grid-column:span 6;
+  }
+
+  .cards.team-grid > .team-admin{
+    grid-column:3 / 11;
+  }
+}
+
+@media (max-width: 768px){
+  .cards.team-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .cards.team-grid > .team-main,
+  .cards.team-grid > .team-card,
+  .cards.team-grid > .team-admin{
+    grid-column:1 / -1;
+    min-height:auto;
+  }
+
+  .team-row--main{
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+  }
+
+  .team-main .team-info{
+    min-width:0;
+    text-align:center;
+  }
+
+  .team-main .tags{
+    justify-content:center;
+  }
+
+  .team-main .team-btn{
+    width:100%;
+    margin:10px 0 0;
+  }
+}
+
+.team-main .avatar-lg{
+  width:165px;
+  height:165px;
+  border-radius:90px;
+}
+
+.team-card__inner .avatar{
+  width:124px;
+  height:124px;
+  border-radius:90px;
+}
+
+.avatar img,
+.avatar-lg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.team-card__inner .avatar{
+  margin-bottom:16px;
+}
+
+.team-card__inner h3{
+  margin-top:4px;
+}
+
+@media (max-width:768px){
+
+  .team-main .avatar-lg{
+    width:84px;
+    height:84px;
+  }
+
+  .team-card__inner .avatar{
+    width:72px;
+    height:72px;
+  }
+
+}
+.team-btn-big{
+  padding: 14px 22px;
+  font-size: 16px;
+  opacity: 55%;
+}
+.team-info-card{
+  text-align: center;
+  padding-top: 0px;  
+}
 </style>
 </head>
 
@@ -142,140 +324,101 @@
 
 <div class="cards team-grid">
 
-<!-- ГЛАВНАЯ КАРТОЧКА НЕ ТРОГАЕМ -->
+  <div class="card tile team-main">
+    <div class="team-row team-row--main">
+      <div class="avatar avatar-lg">
+        <img src="assets/img/dfd00a65-8cf6-43e4-a983-0b959ce43f34.jpg" alt="Фото">
+      </div>
 
-<div class="card tile team-main">
-<div class="team-row">
+      <div class="team-info">
+        <h3>Татьяна Анатольевна</h3>
+        <p class="muted">Руководитель школы • художественная гимнастика</p>
 
-<div class="avatar avatar-lg">
-<img src="assets/img/dfd00a65-8cf6-43e4-a983-0b959ce43f34.jpg" alt="Фото">
-</div>
+        <div class="tags">
+          <span class="tag">Группы 3+</span>
+          <span class="tag">Постановки</span>
+          <span class="tag">Подготовка</span>
+        </div>
+      </div>
 
-<div class="team-info">
-<h3>Татьяна Анатольевна</h3>
-<p class="muted">Руководитель школы • художественная гимнастика</p>
-
-<div class="tags">
-<span class="tag">Группы 3+</span>
-<span class="tag">Постановки</span>
-<span class="tag">Подготовка</span>
-</div>
-</div>
-
-<a class="btn btn--brand btn--sm team-btn" href="contacts.html#write">
-Записаться
-</a>
-
-</div>
-</div>
+<a class="btn btn--brand btn--sm team-btn team-btn-big">Записаться</a>    </div>
+  </div>
 
 
-<!-- АННА -->
+  <div class="card tile team-card">
+    <div class="team-card__inner">
+      <div class="avatar">
+        <img src="assets/img/Face (1).jpeg" alt="Фото">
+      </div>
 
-<div class="card tile">
+      <h3>Анна Дмитриевна</h3>
+      <p class="muted">Эстетическая гимнастика</p>
 
-<div class="team-col">
+      <div class="tags">
+        <span class="tag">Техника</span>
+        <span class="tag">Растяжка</span>
+      </div>
 
-<div class="avatar">
-<img src="assets/img/Face (1).jpeg" alt="Фото">
-</div>
-
-<h3 class="team-name">Анна Дмитриевна</h3>
-<p class="muted team-role">Художественная / эстетическая гимнастика</p>
-
-<div class="tags">
-<span class="tag">Техника</span>
-<span class="tag">Растяжка</span>
-</div>
-
-</div>
-
-<p class="muted team-desc">
-Фокус: техника, гибкость, контроль корпуса.
-</p>
-
-</div>
+      <p class="muted team-desc">Фокус: техника, гибкость, контроль корпуса.</p>
+    </div>
+  </div>
 
 
-<!-- СОФЬЯ -->
+  <div class="card tile team-card">
+    <div class="team-card__inner">
+      <div class="avatar">
+        <img src="assets/img/Face (2).jpeg" alt="Фото">
+      </div>
 
-<div class="card tile">
+      <h3>Софья Александровна</h3>
+      <p class="muted">ОФП • адаптация новичков</p>
 
-<div class="team-col">
+      <div class="tags">
+        <span class="tag">Осанка</span>
+        <span class="tag">Координация</span>
+      </div>
 
-<div class="avatar">
-<img src="assets/img/Face (2).jpeg" alt="Фото">
-</div>
-
-<h3 class="team-name">Софья Александровна</h3>
-<p class="muted team-role">ОФП • адаптация новичков</p>
-
-<div class="tags">
-<span class="tag">Осанка</span>
-<span class="tag">Координация</span>
-</div>
-
-</div>
-
-<p class="muted team-desc">
-Фокус: база, укрепление, правильная техника без перегруза.
-</p>
-
-</div>
+      <p class="muted team-desc">Фокус: база, укрепление, правильная техника без перегруза.</p>
+    </div>
+  </div>
 
 
-<!-- ИРИНА -->
+  <div class="card tile team-card">
+    <div class="team-card__inner">
+      <div class="avatar">
+        <img src="assets/img/Face.jpeg" alt="Фото">
+      </div>
 
-<div class="card tile">
+      <h3>Ирина Сергеевна</h3>
+      <p class="muted">Эстетическая гимнастика • композиции</p>
 
-<div class="team-col">
+      <div class="tags">
+        <span class="tag">Музыкальность</span>
+        <span class="tag">Синхронность</span>
+      </div>
 
-<div class="avatar">
-<img src="assets/img/Face.jpeg" alt="Фото">
-</div>
-
-<h3 class="team-name">Ирина Сергеевна</h3>
-<p class="muted team-role">Эстетическая гимнастика • композиции</p>
-
-<div class="tags">
-<span class="tag">Музыкальность</span>
-<span class="tag">Синхронность</span>
-</div>
-
-</div>
-
-<p class="muted team-desc">
-Фокус: командная работа, выразительность, уверенность.
-</p>
-
-</div>
+      <p class="muted team-desc">Фокус: командная работа, выразительность, уверенность.</p>
+    </div>
+  </div>
 
 
-<!-- АДМИНИСТРАТОР -->
+  <div class="card tile team-admin">
+    <div class="team-card__inner">
+      <div class="avatar">
+        <img src="assets/img/Random_female_face_1.jpeg" alt="Фото">
+      </div>
 
-<div class="card tile">
+      <h3>Администратор</h3>
+      <p class="muted">Запись • расписание • вопросы</p>
 
-<div class="team-col">
+      <div class="tags">
+        <span class="tag">Запись</span>
+        <span class="tag">Подбор группы</span>
+      </div>
 
-<div class="avatar">
-<img src="assets/img/Random_female_face_1.jpeg" alt="Фото">
-</div>
-
-<h3 class="team-name">Ирина К.</h3>
-<p class="muted team-role">Запись • расписание • вопросы</p>
-
-<div class="tags">
-<span class="tag">Запись</span>
-<span class="tag">Подбор группы</span>
-</div>
-
-</div>
-
-<p class="muted team-desc">
-Поможет выбрать направление и удобное время.
-</p>
-
-</div>
+      <p class="muted team-desc">Поможет выбрать направление и удобное время.</p>
+    </div>
+  </div>
 
 </div>
 
@@ -283,6 +426,8 @@
 <div class="card team-info-card">
 
 <h2>Как мы подбираем группу</h2>
+<div>
+</div>
 
 <p class="sub">
 Возраст + уровень подготовки + цель (здоровье / развитие / спорт). После пробного занятия тренер даёт рекомендацию по группе и нагрузке.
@@ -296,49 +441,38 @@
 
 
 <footer class="footer">
+  <div class="container">
+    <div class="card footer-merged">
+      <div class="footer-merged__main">
+        <div class="footer-merged__left">
+          <strong>Счастливая гимнастика</strong><br/>
+          <small>Онлайн-запись • расписание • цены • тренеры • события</small>
 
-<div class="container">
+          <div class="footlinks">
+            <a href="directions.html">Направления</a>
+            <a href="infocenter.html">Инфоцентр</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+        </div>
 
-<div class="footer__grid">
+        <div class="footer-merged__right">
+          <div>
+            <small>Телефон</small><br/>
+            <a href="tel:+79233554158"><strong>+7 (800) 555-35-35</strong></a>
+          </div>
 
-<div class="card footer-card">
+          <div class="footer-merged__pay">
+            <small>Оплата</small><br/>
+            <a class="btn btn--sm" href="pay.html" target="_blank" rel="noopener">Перейти к оплате</a>
+          </div>
+        </div>
+      </div>
 
-<strong>Счастливая гимнастика</strong><br>
-<small>Онлайн-запись • расписание • цены • тренеры • события</small>
-
-<div class="footlinks">
-<a href="directions.html">Направления</a>
-<a href="infocenter.html">Инфоцентр</a>
-<a href="contacts.html">Контакты</a>
-</div>
-
-</div>
-
-
-<div class="card footer-card">
-
-<div>
-<small>Телефон</small><br>
-<a href="tel:+79233554158"><strong>+7 (800) 555-35-35</strong></a>
-</div>
-
-<div class="footer-pay">
-<small>Оплата</small><br>
-<a class="btn btn--sm" href="https://example.com/pay" target="_blank" rel="noopener">
-Перейти к оплате
-</a>
-</div>
-
-</div>
-
-</div>
-
-<div class="footer-copy">
-© <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
-</div>
-
-</div>
-
+      <div class="footer-merged__copy">
+        © <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
+      </div>
+    </div>
+  </div>
 </footer>
 
 

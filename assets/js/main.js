@@ -570,3 +570,173 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', upd, { passive: true });
   upd();
 })();
+// ===== UNIVERSAL FORM HELPERS =====
+(function () {
+  const forms = document.querySelectorAll('form');
+
+  forms.forEach((form) => {
+    const phoneInputs = form.querySelectorAll(
+      'input[name="phone"], input[name="tel"], input[type="tel"]'
+    );
+
+    const nameInputs = form.querySelectorAll(
+      'input[name="name"], input[name="parent_name"], input[name="child_name"], input[data-name], input[name="child"], input[name="parent"]'
+    );
+
+    // ---------- PHONE MASK ----------
+    phoneInputs.forEach((input) => {
+      input.setAttribute('inputmode', 'tel');
+      input.setAttribute('autocomplete', 'tel');
+      input.setAttribute('placeholder', '+7 (___) ___-__-__');
+
+      input.addEventListener('keydown', onPhoneKeydown);
+      input.addEventListener('input', onPhoneInput);
+      input.addEventListener('paste', onPhonePaste);
+
+      function getDigits(value) {
+        return value.replace(/\D/g, '');
+      }
+
+      function normalizeDigits(digits) {
+        if (!digits) return '';
+
+        if (digits[0] === '8') digits = '7' + digits.slice(1);
+        else if (digits[0] === '9') digits = '7' + digits;
+
+        return digits.slice(0, 11);
+      }
+
+      function formatPhone(digits) {
+        digits = normalizeDigits(digits);
+        if (!digits) return '';
+
+        let result = '+7';
+
+        if (digits.length > 1) result += ' (' + digits.slice(1, 4);
+        if (digits.length >= 5) result += ') ' + digits.slice(4, 7);
+        if (digits.length >= 8) result += '-' + digits.slice(7, 9);
+        if (digits.length >= 10) result += '-' + digits.slice(9, 11);
+
+        return result;
+      }
+
+      function countDigitsBeforeCursor(value, cursor) {
+        return (value.slice(0, cursor).match(/\d/g) || []).length;
+      }
+
+      function buildFromDigitIndex(value, digitIndexToRemove) {
+        let digits = normalizeDigits(getDigits(value)).split('');
+        if (digitIndexToRemove >= 0 && digitIndexToRemove < digits.length) {
+          digits.splice(digitIndexToRemove, 1);
+        }
+        return formatPhone(digits.join(''));
+      }
+
+      function setCaretToEnd(el) {
+        requestAnimationFrame(() => {
+          const pos = el.value.length;
+          el.setSelectionRange(pos, pos);
+        });
+      }
+
+      function onPhoneInput() {
+        const digits = normalizeDigits(getDigits(input.value));
+        input.value = formatPhone(digits);
+        setCaretToEnd(input);
+      }
+
+      function onPhonePaste() {
+        requestAnimationFrame(() => {
+          const digits = normalizeDigits(getDigits(input.value));
+          input.value = formatPhone(digits);
+          setCaretToEnd(input);
+        });
+      }
+
+      function onPhoneKeydown(e) {
+        if (e.key !== 'Backspace' && e.key !== 'Delete') return;
+
+        const start = input.selectionStart ?? 0;
+        const end = input.selectionEnd ?? 0;
+        const value = input.value;
+
+        if (start !== end) return;
+
+        if (e.key === 'Backspace' && start > 0) {
+          const prevChar = value[start - 1];
+
+          if (/\D/.test(prevChar)) {
+            e.preventDefault();
+            const digitIndex = countDigitsBeforeCursor(value, start) - 1;
+            input.value = buildFromDigitIndex(value, digitIndex);
+            setCaretToEnd(input);
+          }
+        }
+
+        if (e.key === 'Delete' && start < value.length) {
+          const nextChar = value[start];
+
+          if (/\D/.test(nextChar)) {
+            e.preventDefault();
+            const digitIndex = countDigitsBeforeCursor(value, start);
+            input.value = buildFromDigitIndex(value, digitIndex);
+            setCaretToEnd(input);
+          }
+        }
+      }
+    });
+
+    nameInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        let value = input.value;
+
+        value = value.replace(/[^a-zA-Zа-яА-ЯёЁ\s-]/g, '');
+        value = value.replace(/\s{2,}/g, ' ');
+        value = value.replace(/-{2,}/g, '-');
+        value = value.replace(/(^[\s-]+|[\s-]+$)/g, '');
+
+        value = value
+          .split(' ')
+          .map(word =>
+            word
+              .split('-')
+              .map(part =>
+                part ? part.charAt(0).toUpperCase() + part.slice(1).toLowerCase() : ''
+              )
+              .join('-')
+          )
+          .join(' ');
+
+        input.value = value;
+      });
+    });
+
+    form.addEventListener('submit', (e) => {
+      let valid = true;
+
+      phoneInputs.forEach((input) => {
+        const digits = input.value.replace(/\D/g, '');
+        if (input.hasAttribute('required') && digits.length !== 11) {
+          input.style.borderColor = 'red';
+          valid = false;
+        } else {
+          input.style.borderColor = '';
+        }
+      });
+
+      nameInputs.forEach((input) => {
+        if (input.hasAttribute('required') && input.value.trim().length < 2) {
+          input.style.borderColor = 'red';
+          valid = false;
+        } else {
+          input.style.borderColor = '';
+        }
+      });
+
+      if (!valid) {
+        e.preventDefault();
+        alert('Проверьте заполнение формы');
+      }
+    });
+  });
+})();
