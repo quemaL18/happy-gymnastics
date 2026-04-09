@@ -7,39 +7,63 @@
 <meta name="description" content="Команда школы: тренеры и администраторы, специализация, запись.">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-.pageDecor{position:relative;overflow:hidden;}
-.pageDecor__item{position:absolute;z-index:0;pointer-events:none;opacity:.7;}
-.pageDecor__item img{width:100%;}
-.pageDecor__content{position:relative;z-index:2;}
+  .team-col{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
 
-.teamDecor--ribbon{
-  right:-90px;
-  top:-200px;
-  width:2800px;
-}
+  .team-name{
+    margin:0;
+    font-weight:700;
+  }
 
-.teamDecor--kubok{
-  right:790px;
-  top: 556px;
-  width:150px;
+  .team-role{
+    margin:0;
+  }
+
+  .team-col .avatar{
+    margin-bottom:4px;
+  }
+
+  .team-col .tags{
+    margin-top:0;
+  }
+
+  .pageDecor{position:relative;overflow:hidden;}
+  .pageDecor__item{position:absolute;z-index:0;pointer-events:none;opacity:.7;}
+  .pageDecor__item img{width:100%;}
+  .pageDecor__content{position:relative;z-index:2;}
+
+  .teamDecor--ribbon{
+    right:-90px;
+    top:-200px;
+    width:2800px;
+  }
+
+  .teamDecor--kubok{
+    right:790px;
+    top: 556px;
+    width:150px;
     opacity: 35%;
+  }
 
-}
-.teamDecor--hoops{
-  left:100px;
-  bottom:50px;
-  width:600px;
+  .teamDecor--hoops{
+    left:100px;
+    bottom:50px;
+    width:600px;
     opacity: 35%;
+  }
 
-}
-body{
-  background:
-    linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
-    url("assets/img/decor/cveti.png");
+  body{
+    background:
+      linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
+      url("assets/img/decor/cveti.png");
 
-  background-size: contain;
-  background-position: center;
-}
+    background-size: contain;
+    background-position: center;
+  }
 </style>
 </head>
 
@@ -118,8 +142,9 @@ body{
 
 <div class="cards team-grid">
 
-<div class="card tile team-main">
+<!-- ГЛАВНАЯ КАРТОЧКА НЕ ТРОГАЕМ -->
 
+<div class="card tile team-main">
 <div class="team-row">
 
 <div class="avatar avatar-lg">
@@ -127,19 +152,14 @@ body{
 </div>
 
 <div class="team-info">
-
 <h3>Татьяна Анатольевна</h3>
-
-<p class="muted">
-Руководитель школы • художественная гимнастика
-</p>
+<p class="muted">Руководитель школы • художественная гимнастика</p>
 
 <div class="tags">
 <span class="tag">Группы 3+</span>
 <span class="tag">Постановки</span>
 <span class="tag">Подготовка</span>
 </div>
-
 </div>
 
 <a class="btn btn--brand btn--sm team-btn" href="contacts.html#write">
@@ -150,24 +170,22 @@ body{
 </div>
 
 
+<!-- АННА -->
 
 <div class="card tile">
 
-<div class="team-row">
+<div class="team-col">
 
 <div class="avatar">
 <img src="assets/img/Face (1).jpeg" alt="Фото">
 </div>
 
-<div>
-<h3>Анна Дмитриевна</h3>
-<p class="muted">Художественная / эстетическая гимнастика</p>
+<h3 class="team-name">Анна Дмитриевна</h3>
+<p class="muted team-role">Художественная / эстетическая гимнастика</p>
 
 <div class="tags">
 <span class="tag">Техника</span>
 <span class="tag">Растяжка</span>
-</div>
-
 </div>
 
 </div>
@@ -179,24 +197,22 @@ body{
 </div>
 
 
+<!-- СОФЬЯ -->
 
 <div class="card tile">
 
-<div class="team-row">
+<div class="team-col">
 
 <div class="avatar">
 <img src="assets/img/Face (2).jpeg" alt="Фото">
 </div>
 
-<div>
-<h3>Софья Александровна</h3>
-<p class="muted">ОФП • адаптация новичков</p>
+<h3 class="team-name">Софья Александровна</h3>
+<p class="muted team-role">ОФП • адаптация новичков</p>
 
 <div class="tags">
 <span class="tag">Осанка</span>
 <span class="tag">Координация</span>
-</div>
-
 </div>
 
 </div>
@@ -208,24 +224,22 @@ body{
 </div>
 
 
+<!-- ИРИНА -->
 
 <div class="card tile">
 
-<div class="team-row">
+<div class="team-col">
 
 <div class="avatar">
 <img src="assets/img/Face.jpeg" alt="Фото">
 </div>
 
-<div>
-<h3>Ирина Сергеевна</h3>
-<p class="muted">Эстетическая гимнастика • композиции</p>
+<h3 class="team-name">Ирина Сергеевна</h3>
+<p class="muted team-role">Эстетическая гимнастика • композиции</p>
 
 <div class="tags">
 <span class="tag">Музыкальность</span>
 <span class="tag">Синхронность</span>
-</div>
-
 </div>
 
 </div>
@@ -237,24 +251,22 @@ body{
 </div>
 
 
+<!-- АДМИНИСТРАТОР -->
 
 <div class="card tile">
 
-<div class="team-row">
+<div class="team-col">
 
 <div class="avatar">
 <img src="assets/img/Random_female_face_1.jpeg" alt="Фото">
 </div>
 
-<div>
-<h3>Администратор</h3>
-<p class="muted">Запись • расписание • вопросы</p>
+<h3 class="team-name">Ирина К.</h3>
+<p class="muted team-role">Запись • расписание • вопросы</p>
 
 <div class="tags">
 <span class="tag">Запись</span>
 <span class="tag">Подбор группы</span>
-</div>
-
 </div>
 
 </div>
@@ -266,7 +278,6 @@ body{
 </div>
 
 </div>
-
 
 
 <div class="card team-info-card">
