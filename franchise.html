@@ -1,4 +1,3 @@
-<!-- franchise.html -->
 <!doctype html>
 <html lang="ru">
 <head>
@@ -7,19 +6,128 @@
   <title>Франшиза - Счастливая гимнастика</title>
   <meta name="description" content="Франшиза: условия, преимущества, заявка для партнёров." />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    body{
+      background:
+        linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
+        url("assets/img/decor/cveti.png");
+      background-size: contain;
+      background-position: center;
+    }
+
+    @media (max-width: 768px){
+      .container{
+        width: calc(100% - 24px) !important;
+        max-width: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .split,
+      .split--franchise{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .card,
+      .form{
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .grid2{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      .form__actions{
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+      }
+
+      .form__actions .btn{
+        width: 100% !important;
+      }
+
+      .benefitWrap{
+        position: relative;
+        width: 100%;
+      }
+
+      .benefitRibbon{
+        width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .benefitItem{
+        min-width: 260px !important;
+      }
+
+      .brBtn{
+        z-index: 2;
+      }
+
+      .tableWrap{
+        width: 100%;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table{
+        min-width: 520px;
+      }
+
+      .textarea,
+      .input,
+      .select{
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .footer__grid{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+    }
+
+    @media (max-width: 480px){
+      .container{
+        width: calc(100% - 16px) !important;
+      }
+
+      .h2{
+        font-size: 28px !important;
+        line-height: 1.15 !important;
+      }
+
+      .card{
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+      }
+
+      .benefitItem{
+        min-width: 230px !important;
+      }
+
+      .brBtn{
+        width: 42px;
+        height: 42px;
+      }
+    }
+  </style>
 </head>
-<style>
-  body{
-  background:
-    linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
-    url("assets/img/decor/cveti.png");
 
-  background-size: contain;
-  background-position: center;
-}
-</style>
 <body>
-
 
   <div class="topbar">
     <div class="container">
@@ -28,7 +136,8 @@
           <div class="brand__logo" aria-hidden="true"></div>
           <div class="brand__text">
             <div class="brand__name">Счастливая гимнастика</div>
-            <div class="brand__tag">Красноярское “ЦСР №1”</div>          </div>
+            <div class="brand__tag">Красноярское “ЦСР №1”</div>
+          </div>
         </a>
 
         <nav class="nav">
@@ -70,49 +179,54 @@
         <div class="card" style="padding:18px;">
           <span class="kicker">Партнёрам</span>
           <h1 class="h2" style="font-size:34px;">Франшиза “Счастливая гимнастика”</h1>
-<div class="benefitWrap">
-  <button class="brBtn brBtn--prev" type="button" data-br-prev aria-label="Назад">←</button>
-          <div class="benefitRibbon" style="margin-top:12px;" data-br >
-  <div class="benefitItem">
-    <div class="benefitIcon">1</div>
-    <div class="benefitBody">
-      <h3>Пакет запуска</h3>
-      <p>Материалы, сценарии тренировок, рекомендации по оборудованию.</p>
-    </div>
-  </div>
 
-  <div class="benefitItem">
-    <div class="benefitIcon">2</div>
-    <div class="benefitBody">
-      <h3>Маркетинг</h3>
-      <p>Структура сайта, воронка записи, шаблоны объявлений.</p>
-    </div>
-  </div>
+          <div class="benefitWrap">
+            <button class="brBtn brBtn--prev" type="button" data-br-prev aria-label="Назад">←</button>
 
-  <div class="benefitItem">
-    <div class="benefitIcon">3</div>
-    <div class="benefitBody">
-      <h3>Команда</h3>
-      <p>Подсказки по найму и стандартам сервиса.</p>
-    </div>
-  </div>
+            <div class="benefitRibbon" style="margin-top:12px;" data-br>
+              <div class="benefitItem">
+                <div class="benefitIcon">1</div>
+                <div class="benefitBody">
+                  <h3>Пакет запуска</h3>
+                  <p>Материалы, сценарии тренировок, рекомендации по оборудованию.</p>
+                </div>
+              </div>
 
-  <div class="benefitItem">
-    <div class="benefitIcon">4</div>
-    <div class="benefitBody">
-      <h3>Процессы</h3>
-      <p>Рекомендации по организации работы и документам.</p>
-    </div>
-  </div>
-</div>
-<button class="brBtn brBtn--next" type="button" data-br-next aria-label="Вперёд">→</button>
-</div>
+              <div class="benefitItem">
+                <div class="benefitIcon">2</div>
+                <div class="benefitBody">
+                  <h3>Маркетинг</h3>
+                  <p>Структура сайта, воронка записи, шаблоны объявлений.</p>
+                </div>
+              </div>
+
+              <div class="benefitItem">
+                <div class="benefitIcon">3</div>
+                <div class="benefitBody">
+                  <h3>Команда</h3>
+                  <p>Подсказки по найму и стандартам сервиса.</p>
+                </div>
+              </div>
+
+              <div class="benefitItem">
+                <div class="benefitIcon">4</div>
+                <div class="benefitBody">
+                  <h3>Процессы</h3>
+                  <p>Рекомендации по организации работы и документам.</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="brBtn brBtn--next" type="button" data-br-next aria-label="Вперёд">→</button>
+          </div>
 
           <div class="card" style="padding:16px; margin-top:12px;">
             <h3 style="margin:0 0 8px;">Финансовые условия</h3>
             <div class="tableWrap" style="margin-top:10px;">
               <table>
-                <thead><tr><th>Параметр</th><th>Условие</th></tr></thead>
+                <thead>
+                  <tr><th>Параметр</th><th>Условие</th></tr>
+                </thead>
                 <tbody>
                   <tr><td>Паушальный взнос</td><td>от 300 000 до 500 000 ₽</td></tr>
                   <tr><td>Роялти</td><td>5% - 7% от оборота или фикс.</td></tr>
@@ -132,6 +246,7 @@
               <div class="label">ФИО *</div>
               <input class="input" name="name" required />
             </div>
+
             <div class="grid2">
               <div class="field">
                 <div class="label">Телефон *</div>
@@ -142,6 +257,7 @@
                 <input class="input" name="city" required />
               </div>
             </div>
+
             <div class="field">
               <div class="label">Опыт</div>
               <select class="select" name="exp">
@@ -151,15 +267,18 @@
                 <option>Уточню в разговоре</option>
               </select>
             </div>
+
             <div class="field">
               <div class="label">Комментарий</div>
               <textarea class="textarea" name="comment" placeholder="Например: есть помещение / ищу зал / хочу начать с 2 групп"></textarea>
             </div>
+
             <div class="form__actions">
               <button class="btn btn--brand" type="submit">Отправить</button>
               <a class="btn" href="contacts.html">Контакты</a>
             </div>
-            <div class="note">После заявки свяжемся и расскажем про шаги запуска (демо).</div>
+
+            <div class="note">После заявки свяжемся и расскажем про шаги запуска.</div>
           </form>
         </div>
       </div>
@@ -178,6 +297,7 @@
             <a href="contacts.html">Контакты</a>
           </div>
         </div>
+
         <div class="card" style="padding:14px;">
           <div><small>Телефон</small><br/><a href="tel:+79233554158"><strong>+7 (800) 555-35-35</strong></a></div>
           <div style="margin-top:10px;"><small>Оплата</small><br/>
@@ -185,6 +305,7 @@
           </div>
         </div>
       </div>
+
       <div style="margin-top:12px; color:var(--muted); font-size:12px;">
         © <span id="y"></span> КРОО “ЦСР №1”. Все права защищены.
       </div>
@@ -203,34 +324,35 @@
 
   <script src="assets/js/main.js"></script>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
   <script>
-(function(){
-  const ribbon = document.querySelector('.benefitRibbon[data-br]');
-  const prev = document.querySelector('[data-br-prev]');
-  const next = document.querySelector('[data-br-next]');
-  if(!ribbon) return;
+  (function(){
+    const ribbon = document.querySelector('.benefitRibbon[data-br]');
+    const prev = document.querySelector('[data-br-prev]');
+    const next = document.querySelector('[data-br-next]');
+    if(!ribbon) return;
 
-  const step = () => Math.min(420, ribbon.clientWidth * 0.9);
+    const step = () => Math.min(420, ribbon.clientWidth * 0.9);
 
-  const upd = () => {
-    const max = ribbon.scrollWidth - ribbon.clientWidth;
-    if(prev) prev.disabled = ribbon.scrollLeft <= 2;
-    if(next) next.disabled = ribbon.scrollLeft >= max - 2;
-  };
+    const upd = () => {
+      const max = ribbon.scrollWidth - ribbon.clientWidth;
+      if(prev) prev.disabled = ribbon.scrollLeft <= 2;
+      if(next) next.disabled = ribbon.scrollLeft >= max - 2;
+    };
 
-  if(prev) prev.addEventListener('click', () => ribbon.scrollBy({ left: -step(), behavior:'smooth' }));
-  if(next) next.addEventListener('click', () => ribbon.scrollBy({ left:  step(), behavior:'smooth' }));
+    if(prev) prev.addEventListener('click', () => ribbon.scrollBy({ left: -step(), behavior:'smooth' }));
+    if(next) next.addEventListener('click', () => ribbon.scrollBy({ left:  step(), behavior:'smooth' }));
 
-  ribbon.addEventListener('wheel', (e)=>{
-    e.preventDefault();
-    ribbon.scrollLeft += e.deltaY;
+    ribbon.addEventListener('wheel', (e)=>{
+      e.preventDefault();
+      ribbon.scrollLeft += e.deltaY;
+      upd();
+    }, {passive:false});
+
+    ribbon.addEventListener('scroll', upd);
+    window.addEventListener('resize', upd);
     upd();
-  }, {passive:false});
-
-  ribbon.addEventListener('scroll', upd);
-  window.addEventListener('resize', upd);
-  upd();
-})();
-</script>
+  })();
+  </script>
 </body>
 </html>
