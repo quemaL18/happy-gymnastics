@@ -372,7 +372,7 @@ small{color:var(--muted)}
 .card{
   border:1px solid rgba(0,0,0,.06);
   background: rgba(255,255,255,.72);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius2);
   box-shadow: 0 12px 30px rgba(0,0,0,.08);
@@ -389,7 +389,7 @@ small{color:var(--muted)}
   border:1px solid rgba(255,255,255,.55);
 }
 .card:hover{
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: rgba(108,92,231,.16);
   box-shadow: 0 26px 70px rgba(35,26,38,.12);
 }
@@ -2884,4 +2884,32 @@ grid-column:auto;
 }
 .footer-merged .footlinks{
   margin-top:18px !important;
+}
+.card{
+  position:relative;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:3px;
+  background: linear-gradient(185deg, #ffb3d9, #6c5ce7);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events:none;
+  opacity:.3;
+}
+.card,
+.hero__left,
+.hero__right{
+  animation:fadeUp 1.5s ease both;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(16px);}
+  to{opacity:1; transform:translateY(0);}
 }
