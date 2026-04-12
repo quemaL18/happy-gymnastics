@@ -2903,13 +2903,3 @@ grid-column:auto;
   pointer-events:none;
   opacity:.3;
 }
-.card,
-.hero__left,
-.hero__right{
-  animation:fadeUp 1.5s ease both;
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(16px);}
-  to{opacity:1; transform:translateY(0);}
-}
